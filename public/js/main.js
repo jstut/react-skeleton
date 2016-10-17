@@ -20756,6 +20756,8 @@ process.chdir = function (dir) {
 process.umask = function() { return 0; };
 
 },{}],172:[function(require,module,exports){
+'use strict';
+
 var React = require('react');
 var ListItem = require('./ListItem.jsx');
 
@@ -20764,7 +20766,7 @@ var ingredients = [{ "id": 1, "text": "ham" }, { "id": 2, "text": "cheese" }, { 
 var List = React.createClass({
   displayName: 'List',
 
-  render: function () {
+  render: function render() {
     var listItems = ingredients.map(function (item) {
       return React.createElement(ListItem, { key: item.id, ingredient: item.text });
     });
@@ -20779,11 +20781,13 @@ var List = React.createClass({
 module.exports = List;
 
 },{"./ListItem.jsx":173,"react":170}],173:[function(require,module,exports){
+'use strict';
+
 var React = require('react');
 var ListItem = React.createClass({
   displayName: 'ListItem',
 
-  render: function () {
+  render: function render() {
     return React.createElement(
       'li',
       null,
@@ -20799,10 +20803,74 @@ var ListItem = React.createClass({
 module.exports = ListItem;
 
 },{"react":170}],174:[function(require,module,exports){
-var React = require('react');
-var ReactDOM = require('react-dom');
-var List = require('./components/List.jsx');
+'use strict';
 
-ReactDOM.render(React.createElement(List, null), document.getElementById('ingredients'));
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-},{"./components/List.jsx":172,"react":170,"react-dom":1}]},{},[174]);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Message = function (_React$Component) {
+  _inherits(Message, _React$Component);
+
+  function Message() {
+    _classCallCheck(this, Message);
+
+    return _possibleConstructorReturn(this, (Message.__proto__ || Object.getPrototypeOf(Message)).apply(this, arguments));
+  }
+
+  _createClass(Message, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'h1',
+        null,
+        this.props.title
+      );
+    }
+  }]);
+
+  return Message;
+}(_react2.default.Component);
+
+exports.default = Message;
+
+},{"react":170}],175:[function(require,module,exports){
+'use strict';
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _List = require('./components/List.jsx');
+
+var _List2 = _interopRequireDefault(_List);
+
+var _Message = require('./components/Message.jsx');
+
+var _Message2 = _interopRequireDefault(_Message);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_reactDom2.default.render(_react2.default.createElement(_List2.default, null), document.getElementById('ingredients'));
+// Message
+_reactDom2.default.render(_react2.default.createElement(_Message2.default, { title: 'This is a message from ES6' }), document.getElementById('message'));
+
+},{"./components/List.jsx":172,"./components/Message.jsx":174,"react":170,"react-dom":1}]},{},[175]);
